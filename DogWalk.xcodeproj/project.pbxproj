@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166BE18D2839B00C52F9B /* PlaypalsTableViewController.m */; };
+		330166F618D29FDA00C52F9B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166F518D29FDA00C52F9B /* Photo.m */; };
+		330166F918D29FDA00C52F9B /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166F818D29FDA00C52F9B /* Family.m */; };
+		330166FC18D29FDA00C52F9B /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166FB18D29FDA00C52F9B /* Owner.m */; };
+		330166FF18D29FDA00C52F9B /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166FE18D29FDA00C52F9B /* Dog.m */; };
 		33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33047CB818CA990200797CB4 /* Model.xcdatamodeld */; };
-		33047CCB18CAB4D600797CB4 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 33047CCA18CAB4D600797CB4 /* Dog.m */; };
-		33047CCE18CAB4D700797CB4 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 33047CCD18CAB4D700797CB4 /* Owner.m */; };
-		33047CD118CAB4D700797CB4 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 33047CD018CAB4D700797CB4 /* Family.m */; };
-		33047CD418CAB4D700797CB4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33047CD318CAB4D700797CB4 /* Photo.m */; };
 		336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753B18C6A3A500612212 /* Foundation.framework */; };
 		336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753D18C6A3A500612212 /* CoreGraphics.framework */; };
 		336C754018C6A3A500612212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753F18C6A3A500612212 /* UIKit.framework */; };
@@ -43,16 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		330166BD18D2839B00C52F9B /* PlaypalsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaypalsTableViewController.h; sourceTree = "<group>"; };
+		330166BE18D2839B00C52F9B /* PlaypalsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaypalsTableViewController.m; sourceTree = "<group>"; };
+		330166F418D29FDA00C52F9B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		330166F518D29FDA00C52F9B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		330166F718D29FDA00C52F9B /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
+		330166F818D29FDA00C52F9B /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
+		330166FA18D29FDA00C52F9B /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		330166FB18D29FDA00C52F9B /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
+		330166FD18D29FDA00C52F9B /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		330166FE18D29FDA00C52F9B /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
 		33047CB918CA990200797CB4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		33047CBC18CAA9C100797CB4 /* DogDataAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DogDataAvailability.h; sourceTree = "<group>"; };
-		33047CC918CAB4D600797CB4 /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
-		33047CCA18CAB4D600797CB4 /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
-		33047CCC18CAB4D700797CB4 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
-		33047CCD18CAB4D700797CB4 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
-		33047CCF18CAB4D700797CB4 /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
-		33047CD018CAB4D700797CB4 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
-		33047CD218CAB4D700797CB4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		33047CD318CAB4D700797CB4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		336C753818C6A3A500612212 /* DogWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336C753B18C6A3A500612212 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		336C753D18C6A3A500612212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,18 +108,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330166C018D283AA00C52F9B /* Playpals */ = {
+			isa = PBXGroup;
+			children = (
+				330166BD18D2839B00C52F9B /* PlaypalsTableViewController.h */,
+				330166BE18D2839B00C52F9B /* PlaypalsTableViewController.m */,
+			);
+			name = Playpals;
+			sourceTree = "<group>";
+		};
 		33047CBB18CA990C00797CB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				330166F418D29FDA00C52F9B /* Photo.h */,
+				330166FD18D29FDA00C52F9B /* Dog.h */,
+				330166FE18D29FDA00C52F9B /* Dog.m */,
+				330166FA18D29FDA00C52F9B /* Owner.h */,
+				330166FB18D29FDA00C52F9B /* Owner.m */,
+				330166F718D29FDA00C52F9B /* Family.h */,
+				330166F818D29FDA00C52F9B /* Family.m */,
+				330166F518D29FDA00C52F9B /* Photo.m */,
 				33047CB818CA990200797CB4 /* Model.xcdatamodeld */,
-				33047CD218CAB4D700797CB4 /* Photo.h */,
-				33047CD318CAB4D700797CB4 /* Photo.m */,
-				33047CCF18CAB4D700797CB4 /* Family.h */,
-				33047CD018CAB4D700797CB4 /* Family.m */,
-				33047CCC18CAB4D700797CB4 /* Owner.h */,
-				33047CCD18CAB4D700797CB4 /* Owner.m */,
-				33047CC918CAB4D600797CB4 /* Dog.h */,
-				33047CCA18CAB4D600797CB4 /* Dog.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -157,6 +169,7 @@
 				336C757F18C7A2F500612212 /* Sidebar */,
 				336C758018C7A39300612212 /* Storyboard */,
 				336C758118C7A3A100612212 /* Profile */,
+				330166C018D283AA00C52F9B /* Playpals */,
 				33047CBB18CA990C00797CB4 /* Model */,
 				336C757718C6A9D900612212 /* Library */,
 				336C754218C6A3A500612212 /* Supporting Files */,
@@ -342,15 +355,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33047CCB18CAB4D600797CB4 /* Dog.m in Sources */,
+				330166F618D29FDA00C52F9B /* Photo.m in Sources */,
+				330166F918D29FDA00C52F9B /* Family.m in Sources */,
+				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				336C757E18C7A2E400612212 /* SidebarViewController.m in Sources */,
 				336C755518C6A3A500612212 /* ProfileViewController.m in Sources */,
-				33047CD118CAB4D700797CB4 /* Family.m in Sources */,
-				33047CCE18CAB4D700797CB4 /* Owner.m in Sources */,
 				336C758418C7AF3F00612212 /* EditProfileViewController.m in Sources */,
+				330166FF18D29FDA00C52F9B /* Dog.m in Sources */,
 				33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */,
 				336C754C18C6A3A500612212 /* AppDelegate.m in Sources */,
-				33047CD418CAB4D700797CB4 /* Photo.m in Sources */,
+				330166FC18D29FDA00C52F9B /* Owner.m in Sources */,
 				336C754818C6A3A500612212 /* main.m in Sources */,
 				336C757618C6A9D000612212 /* SWRevealViewController.m in Sources */,
 			);

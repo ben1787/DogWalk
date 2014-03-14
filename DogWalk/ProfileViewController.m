@@ -9,7 +9,6 @@
 #import "ProfileViewController.h"
 #import "SWRevealViewController.h"
 #import "EditProfileViewController.h"
-#import "DogDataAvailability.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *names;
@@ -36,7 +35,7 @@
         _managedObjectContext = managedObjectContext;
     }
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
-    request.predicate = nil; //[NSPredicate predicateWithFormat:@"isUserFamily == 1"];
+    request.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 1"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"isUserFamily"
                                                             ascending:YES]];
     Family *userFamily = [[managedObjectContext executeFetchRequest:request
@@ -79,6 +78,7 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self updateUIData];
 
 }
 

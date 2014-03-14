@@ -8,9 +8,14 @@
 
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
+#import "DogDataAvailability.h"
+#import "ProfileViewController.h"
+#import "PlaypalsTableViewController.h"
 
 @interface SidebarViewController ()
 @property (strong, nonatomic) NSArray *menuItems;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end
 
 @implementation SidebarViewController
@@ -22,6 +27,17 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)awakeFromNib
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:DogDataAvailabilityNotfication
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *note) {
+                                                      self.managedObjectContext = note.userInfo[DogDataAvailabilityContext];
+                                                  }];
+    [super awakeFromNib];
 }
 
 - (void)viewDidLoad
@@ -118,6 +134,15 @@
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[_menuItems objectAtIndex:indexPath.row] capitalizedString];
     
+    if([segue.identifier isEqualToString:@"show profile"]) {
+        ProfileViewController *destViewController = (ProfileViewController *)segue.destinationViewController;
+        destViewController.managedObjectContext = self.managedObjectContext;
+    }
+    
+    if([segue.identifier isEqualToString:@"show playpals"]) {
+        PlaypalsTableViewController *destViewController = (PlaypalsTableViewController *)segue.destinationViewController;
+        destViewController.managedObjectContext = self.managedObjectContext;
+    }
     
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
