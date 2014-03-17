@@ -12,6 +12,7 @@
 		330166F918D29FDA00C52F9B /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166F818D29FDA00C52F9B /* Family.m */; };
 		330166FC18D29FDA00C52F9B /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166FB18D29FDA00C52F9B /* Owner.m */; };
 		330166FF18D29FDA00C52F9B /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166FE18D29FDA00C52F9B /* Dog.m */; };
+		3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670118D3B34400C52F9B /* MyProfileViewController.m */; };
 		33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33047CB818CA990200797CB4 /* Model.xcdatamodeld */; };
 		336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753B18C6A3A500612212 /* Foundation.framework */; };
 		336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753D18C6A3A500612212 /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 		330166FB18D29FDA00C52F9B /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
 		330166FD18D29FDA00C52F9B /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 		330166FE18D29FDA00C52F9B /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
+		3301670018D3B34400C52F9B /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		3301670118D3B34400C52F9B /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		33047CB918CA990200797CB4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		33047CBC18CAA9C100797CB4 /* DogDataAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DogDataAvailability.h; sourceTree = "<group>"; };
 		336C753818C6A3A500612212 /* DogWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +256,8 @@
 				336C758318C7AF3F00612212 /* EditProfileViewController.m */,
 				336C755318C6A3A500612212 /* ProfileViewController.h */,
 				336C755418C6A3A500612212 /* ProfileViewController.m */,
+				3301670018D3B34400C52F9B /* MyProfileViewController.h */,
+				3301670118D3B34400C52F9B /* MyProfileViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			files = (
 				330166F618D29FDA00C52F9B /* Photo.m in Sources */,
 				330166F918D29FDA00C52F9B /* Family.m in Sources */,
+				3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */,
 				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				336C757E18C7A2E400612212 /* SidebarViewController.m in Sources */,
 				336C755518C6A3A500612212 /* ProfileViewController.m in Sources */,

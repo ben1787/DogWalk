@@ -7,6 +7,7 @@
 //
 
 #import "PlaypalsTableViewController.h"
+#import "ProfileViewController.h"
 #import "SWRevealViewController.h"
 #import "DogDataAvailability.h"
 
@@ -114,7 +115,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -122,8 +123,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[ProfileViewController class]]) {
+        ProfileViewController *pvc = (ProfileViewController *)segue.destinationViewController;
+        pvc.userFamily = [self.playpalFamilies objectAtIndex:[[self tableView] indexPathForSelectedRow].row];
+    }
 }
-
- */
 
 @end

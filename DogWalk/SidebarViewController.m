@@ -9,7 +9,7 @@
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
 #import "DogDataAvailability.h"
-#import "ProfileViewController.h"
+#import "MyProfileViewController.h"
 #import "PlaypalsTableViewController.h"
 
 @interface SidebarViewController ()
@@ -134,8 +134,8 @@
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[_menuItems objectAtIndex:indexPath.row] capitalizedString];
     
-    if([segue.identifier isEqualToString:@"show profile"]) {
-        ProfileViewController *destViewController = (ProfileViewController *)segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"show my profile"]) {
+        MyProfileViewController *destViewController = (MyProfileViewController *)segue.destinationViewController;
         destViewController.managedObjectContext = self.managedObjectContext;
     }
     
