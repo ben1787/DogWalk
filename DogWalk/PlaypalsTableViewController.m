@@ -9,7 +9,7 @@
 #import "PlaypalsTableViewController.h"
 #import "ProfileViewController.h"
 #import "SWRevealViewController.h"
-#import "DogDataAvailability.h"
+#import "DogDataAvailablitySingleton.h"
 
 @interface PlaypalsTableViewController ()
 @property (strong, nonatomic) NSArray *playpalFamilies;
@@ -32,16 +32,16 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
--(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+-(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
 {
-    if(!_managedObjectContext) {
-        _managedObjectContext = managedObjectContext;
+    if(!_dogDataContext) {
+        _dogDataContext = dogDataContext;
     }
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
-    request.predicate = nil; //[NSPredicate predicateWithFormat:@"isUserFamily == 1"];
+    request.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 0"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"owner.name"
                                                               ascending:YES]];
-    NSArray *playpalFamilies = [managedObjectContext executeFetchRequest:request
+    NSArray *playpalFamilies = [dogDataContext executeFetchRequest:request
                                                               error:nil];
     self.playpalFamilies = playpalFamilies;
 }

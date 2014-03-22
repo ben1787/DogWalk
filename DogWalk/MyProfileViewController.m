@@ -8,6 +8,7 @@
 
 #import "MyProfileViewController.h"
 #import "EditProfileViewController.h"
+#import "SidebarViewController.h"
 
 @interface MyProfileViewController ()
 
@@ -15,16 +16,25 @@
 
 @implementation MyProfileViewController
 
--(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+-(void)viewDidLoad
 {
-    if(!_managedObjectContext) {
-        _managedObjectContext = managedObjectContext;
+    [super viewDidLoad];
+    
+    SidebarViewController *sbvc = (SidebarViewController *)self.revealViewController.rearViewController;
+    sbvc.dogDataContext = self.dogDataContext;
+}
+
+-(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
+{
+    if(!_dogDataContext) {
+        _dogDataContext = dogDataContext;
     }
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
     request.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 1"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"isUserFamily"
                                                               ascending:YES]];
-    Family *userFamily = [[managedObjectContext executeFetchRequest:request
+    Family *userFamily = [[dogDataContext executeFetchRequest:request
                                                               error:nil] firstObject];
     if(userFamily) {
         self.userFamily = userFamily;
@@ -33,25 +43,14 @@
         }
     } else {
         self.userFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
-                                                        inManagedObjectContext:managedObjectContext];
+                                                        inManagedObjectContext:dogDataContext];
         self.userFamily.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
-                                                              inManagedObjectContext:managedObjectContext];
+                                                              inManagedObjectContext:dogDataContext];
         Dog *familyDog = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
-                                                       inManagedObjectContext:managedObjectContext];
+                                                       inManagedObjectContext:dogDataContext];
         familyDog.family = self.userFamily;
         self.userFamily.isUserFamily = [NSNumber numberWithBool:YES];
     }
-}
-
--(void)awakeFromNib
-{
-    [[NSNotificationCenter defaultCenter] addObserverForName:DogDataAvailabilityNotfication
-                                                      object:nil
-                                                       queue:nil
-                                                  usingBlock:^(NSNotification *note) {
-                                                      self.managedObjectContext = note.userInfo[DogDataAvailabilityContext];
-                                                  }];
-    [super awakeFromNib];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -59,6 +58,10 @@
     if([segue.destinationViewController isKindOfClass:[EditProfileViewController class]] && [segue.identifier isEqualToString:@"show edit profile"]) {
         EditProfileViewController *epvc = (EditProfileViewController *)segue.destinationViewController;
         epvc.userFamily = self.userFamily;
+    }
+    else if ([segue.destinationViewController isKindOfClass:[SidebarViewController class]]) {
+        SidebarViewController *sbvc = (SidebarViewController *)segue.destinationViewController;
+        sbvc.dogDataContext = self.dogDataContext;
     }
 }
 

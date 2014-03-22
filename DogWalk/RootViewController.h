@@ -1,14 +1,15 @@
 //
-//  SidebarViewController.h
+//  RootViewController.h
 //  DogWalk
 //
-//  Created by Development on 3/5/14.
+//  Created by Development on 3/19/14.
 //  Copyright (c) 2014 Development. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "DogDataAvailablitySingleton.h"
 
-@interface SidebarViewController : UITableViewController
+@interface RootViewController : UIViewController
 
 @property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
 

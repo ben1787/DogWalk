@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 
 @interface MyProfileViewController : ProfileViewController
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

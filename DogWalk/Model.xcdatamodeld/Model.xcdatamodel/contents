@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Dog" representedClassName="Dog" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="family" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="dogs" inverseEntity="Family" syncable="YES"/>
     </entity>
     <entity name="Family" representedClassName="Family" syncable="YES">
         <attribute name="aboutUs" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isUserFamily" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUserFamily" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="dogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dog" inverseName="family" inverseEntity="Dog" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="family" inverseEntity="Owner" syncable="YES"/>
         <relationship name="pics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="takenOf" inverseEntity="Photo" syncable="YES"/>

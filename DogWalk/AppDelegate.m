@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DogDataAvailability.h"
+#import "DogDataAvailablitySingleton.h"
 
 @interface AppDelegate()
 @property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
@@ -65,42 +65,51 @@
 
 -(void)addFamilies {
     
-    //Add additional families to the database
-    //scooby doo
-    Family *mysteryTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
-                                                        inManagedObjectContext:self.dogDataContext];
-    mysteryTeam.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
-                                                      inManagedObjectContext:self.dogDataContext];
-    Dog *scooby = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
-                                                inManagedObjectContext:self.dogDataContext];
-    mysteryTeam.owner.name = @"Shaggy";
-    scooby.name = @"Scooby Doo";
-    scooby.family = mysteryTeam;
-    mysteryTeam.aboutUs = @"We solve mysteries!";
+    //Check to see if there are any playpal families and add if there are not
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
+    request.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 0"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"owner.name"
+                                                              ascending:YES]];
+    NSArray *playpals = [self.dogDataContext executeFetchRequest:request
+                                                              error:nil];
+    if(![playpals count]) {
+        //Add additional families to the database
+        //scooby doo
+        Family *mysteryTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
+                                                            inManagedObjectContext:self.dogDataContext];
+        mysteryTeam.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
+                                                          inManagedObjectContext:self.dogDataContext];
+        Dog *scooby = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
+                                                    inManagedObjectContext:self.dogDataContext];
+        mysteryTeam.owner.name = @"Shaggy";
+        scooby.name = @"Scooby Doo";
+        scooby.family = mysteryTeam;
+        mysteryTeam.aboutUs = @"We solve mysteries!";
 
-    //snoopy
-    Family *peanuts = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
-                                                        inManagedObjectContext:self.dogDataContext];
-    peanuts.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
-                                                      inManagedObjectContext:self.dogDataContext];
-    Dog *snoopy = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
-                                                inManagedObjectContext:self.dogDataContext];
-    peanuts.owner.name = @"Charlie";
-    snoopy.name = @"Snoopy";
-    snoopy.family = peanuts;
-    peanuts.aboutUs = @"We play together.";
-    
-    //clifford
-    Family *elizabeth = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
-                                                        inManagedObjectContext:self.dogDataContext];
-    elizabeth.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
-                                                      inManagedObjectContext:self.dogDataContext];
-    Dog *clifford = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
-                                                inManagedObjectContext:self.dogDataContext];
-    elizabeth.owner.name = @"Emily";
-    clifford.name = @"Clifford";
-    clifford.family = elizabeth;
-    elizabeth.aboutUs = @"Clifford is the biggest reddest dog ever!";
+        //snoopy
+        Family *peanuts = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
+                                                            inManagedObjectContext:self.dogDataContext];
+        peanuts.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
+                                                          inManagedObjectContext:self.dogDataContext];
+        Dog *snoopy = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
+                                                    inManagedObjectContext:self.dogDataContext];
+        peanuts.owner.name = @"Charlie";
+        snoopy.name = @"Snoopy";
+        snoopy.family = peanuts;
+        peanuts.aboutUs = @"We play together.";
+        
+        //clifford
+        Family *elizabeth = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
+                                                            inManagedObjectContext:self.dogDataContext];
+        elizabeth.owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner"
+                                                          inManagedObjectContext:self.dogDataContext];
+        Dog *clifford = [NSEntityDescription insertNewObjectForEntityForName:@"Dog"
+                                                    inManagedObjectContext:self.dogDataContext];
+        elizabeth.owner.name = @"Emily";
+        clifford.name = @"Clifford";
+        clifford.family = elizabeth;
+        elizabeth.aboutUs = @"Clifford is the biggest reddest dog ever!";
+    }
 }
 
 
