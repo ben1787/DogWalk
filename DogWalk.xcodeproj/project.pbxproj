@@ -28,14 +28,13 @@
 		336C756018C6A3A500612212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753F18C6A3A500612212 /* UIKit.framework */; };
 		336C756818C6A3A500612212 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 336C756618C6A3A500612212 /* InfoPlist.strings */; };
 		336C756A18C6A3A500612212 /* DogWalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C756918C6A3A500612212 /* DogWalkTests.m */; };
-		336C757618C6A9D000612212 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C757518C6A9D000612212 /* SWRevealViewController.m */; };
 		336C757E18C7A2E400612212 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C757D18C7A2E300612212 /* SidebarViewController.m */; };
 		336C758418C7AF3F00612212 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C758318C7AF3F00612212 /* EditProfileViewController.m */; };
-		33F4ECBD18DD1FA700DF4F48 /* DogDataAvailablitySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECBC18DD1FA700DF4F48 /* DogDataAvailablitySingleton.m */; };
 		33F4ECC018DE1DE900DF4F48 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECBF18DE1DE900DF4F48 /* Owner.m */; };
 		33F4ECC318DE1DEA00DF4F48 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECC218DE1DEA00DF4F48 /* Dog.m */; };
 		33F4ECC618DE1DEA00DF4F48 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECC518DE1DEA00DF4F48 /* Family.m */; };
 		33F4ECC918DE1DEA00DF4F48 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECC818DE1DEA00DF4F48 /* Photo.m */; };
+		33F4ECCF18E1280200DF4F48 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECCE18E1280200DF4F48 /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,14 +79,10 @@
 		336C756518C6A3A500612212 /* DogWalkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DogWalkTests-Info.plist"; sourceTree = "<group>"; };
 		336C756718C6A3A500612212 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		336C756918C6A3A500612212 /* DogWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DogWalkTests.m; sourceTree = "<group>"; };
-		336C757418C6A9D000612212 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		336C757518C6A9D000612212 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		336C757C18C7A2E300612212 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		336C757D18C7A2E300612212 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		336C758218C7AF3F00612212 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		336C758318C7AF3F00612212 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
-		33F4ECBB18DD1FA700DF4F48 /* DogDataAvailablitySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogDataAvailablitySingleton.h; sourceTree = "<group>"; };
-		33F4ECBC18DD1FA700DF4F48 /* DogDataAvailablitySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogDataAvailablitySingleton.m; sourceTree = "<group>"; };
 		33F4ECBE18DE1DE900DF4F48 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
 		33F4ECBF18DE1DE900DF4F48 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
 		33F4ECC118DE1DEA00DF4F48 /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -96,6 +91,9 @@
 		33F4ECC518DE1DEA00DF4F48 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
 		33F4ECC718DE1DEA00DF4F48 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		33F4ECC818DE1DEA00DF4F48 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		33F4ECCD18E1280200DF4F48 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		33F4ECCE18E1280200DF4F48 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		33F4ECD018E128CC00DF4F48 /* DogDataAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DogDataAvailability.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +169,8 @@
 		336C752F18C6A3A400612212 = {
 			isa = PBXGroup;
 			children = (
+				33F4ECCD18E1280200DF4F48 /* TabBarViewController.h */,
+				33F4ECCE18E1280200DF4F48 /* TabBarViewController.m */,
 				336C754118C6A3A500612212 /* DogWalk */,
 				336C756318C6A3A500612212 /* DogWalkTests */,
 				336C753A18C6A3A500612212 /* Frameworks */,
@@ -219,8 +219,7 @@
 				336C755618C6A3A500612212 /* Images.xcassets */,
 				336C754A18C6A3A500612212 /* AppDelegate.h */,
 				336C754B18C6A3A500612212 /* AppDelegate.m */,
-				33F4ECBB18DD1FA700DF4F48 /* DogDataAvailablitySingleton.h */,
-				33F4ECBC18DD1FA700DF4F48 /* DogDataAvailablitySingleton.m */,
+				33F4ECD018E128CC00DF4F48 /* DogDataAvailability.h */,
 				336C754318C6A3A500612212 /* DogWalk-Info.plist */,
 				336C754418C6A3A500612212 /* InfoPlist.strings */,
 				336C754718C6A3A500612212 /* main.m */,
@@ -247,21 +246,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		336C757318C6A9D000612212 /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				336C757418C6A9D000612212 /* SWRevealViewController.h */,
-				336C757518C6A9D000612212 /* SWRevealViewController.m */,
-			);
-			name = SWRevealViewController;
-			path = "../../SWRevealViewController-master/SWRevealViewController";
-			sourceTree = "<group>";
-		};
 		336C757718C6A9D900612212 /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				3301670A18DA7E3900C52F9B /* KeychainStore */,
-				336C757318C6A9D000612212 /* SWRevealViewController */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -396,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */,
-				33F4ECBD18DD1FA700DF4F48 /* DogDataAvailablitySingleton.m in Sources */,
+				33F4ECCF18E1280200DF4F48 /* TabBarViewController.m in Sources */,
 				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				33F4ECC018DE1DE900DF4F48 /* Owner.m in Sources */,
 				3301670518DA710300C52F9B /* LoginViewController.m in Sources */,
@@ -408,7 +396,6 @@
 				33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */,
 				336C754C18C6A3A500612212 /* AppDelegate.m in Sources */,
 				336C754818C6A3A500612212 /* main.m in Sources */,
-				336C757618C6A9D000612212 /* SWRevealViewController.m in Sources */,
 				33F4ECC318DE1DEA00DF4F48 /* Dog.m in Sources */,
 				33F4ECC618DE1DEA00DF4F48 /* Family.m in Sources */,
 				3301670918DA760400C52F9B /* RootViewController.m in Sources */,

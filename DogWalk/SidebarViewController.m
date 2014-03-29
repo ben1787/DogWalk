@@ -7,8 +7,7 @@
 //
 
 #import "SidebarViewController.h"
-#import "SWRevealViewController.h"
-#import "DogDataAvailablitySingleton.h"
+#import "DogDataAvailability.h"
 #import "MyProfileViewController.h"
 #import "PlaypalsTableViewController.h"
 #import "LoginViewController.h"
@@ -137,18 +136,7 @@
         LoginViewController *lvc = (LoginViewController *)segue.destinationViewController;
         lvc.dogDataContext = self.dogDataContext;
     }
-    
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
-        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         
-        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
-            
-            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [navController setViewControllers: @[dvc] animated: NO ];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        };
-        
-    }
 }
 
 @end

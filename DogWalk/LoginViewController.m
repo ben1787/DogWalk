@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "MyProfileViewController.h"
+#import "TabBarViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -33,32 +33,21 @@
     _password = password;
     password.delegate = self;
 }
-
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+- (IBAction)attemptLogin:(UIButton *)sender {
     BOOL validPassword = [[self class] validatePassword:self.password.text ForUsername:self.username.text];
     if(validPassword) {
         UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"DogWalk"];
         [store setString:self.username.text forKey:@"username"];
         [store setString:self.password.text forKey:@"password"];
         [store synchronize];
-        return YES;
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:INVALID_CREDENTIALS message:INVALID_CREDENTIALS_TEXT delegate:nil cancelButtonTitle:OK otherButtonTitles:nil, nil];
-    [alert show];
-    self.password.text = EMPTY_STRING;
-    
-    [self.username resignFirstResponder];
-    [self.password resignFirstResponder];
-
-    return NO;
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[MyProfileViewController class]]) {
-        MyProfileViewController *mpvc = (MyProfileViewController *)segue.destinationViewController;
-        mpvc.dogDataContext = self.dogDataContext;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:INVALID_CREDENTIALS message:INVALID_CREDENTIALS_TEXT delegate:nil cancelButtonTitle:OK otherButtonTitles:nil, nil];
+        [alert show];
+        self.password.text = EMPTY_STRING;
+        
+        [self.username resignFirstResponder];
+        [self.password resignFirstResponder];
     }
 }
 

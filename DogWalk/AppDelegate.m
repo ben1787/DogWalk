@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "DogDataAvailablitySingleton.h"
+#import "DogDataAvailability.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate()
 @property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
@@ -43,8 +44,18 @@
                 }
             }
         }];
-        
     }
+    
+    //retreive the credentials from keychain. If there on to profile, else to login
+    /*UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"DogWalk"];
+    NSString *username = [store stringForKey:@"username"];
+    NSString *password = [store stringForKey:@"password"];
+    BOOL isLoggedIn = [LoginViewController validatePassword:password ForUsername:username];
+    
+    NSString *storyboardId = isLoggedIn ? @"Root" : @"Login";
+    self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardId];
+   
+   */
     return YES;
 }
 

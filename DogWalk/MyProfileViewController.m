@@ -8,7 +8,9 @@
 
 #import "MyProfileViewController.h"
 #import "EditProfileViewController.h"
-#import "SidebarViewController.h"
+#import "TabBarViewController.h"
+#import "LoginViewController.h"
+#import "UICKeyChainStore.h"
 
 @interface MyProfileViewController ()
 
@@ -16,12 +18,15 @@
 
 @implementation MyProfileViewController
 
--(void)viewDidLoad
+-(void)awakeFromNib
 {
-    [super viewDidLoad];
-    
-    SidebarViewController *sbvc = (SidebarViewController *)self.revealViewController.rearViewController;
-    sbvc.dogDataContext = self.dogDataContext;
+    [[NSNotificationCenter defaultCenter] addObserverForName:DogDataAvailabilityNotfication
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *note) {
+                                                      self.dogDataContext = note.userInfo[DogDataAvailabilityContext];
+                                                  }];
+    [super awakeFromNib];
 }
 
 -(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
@@ -30,6 +35,9 @@
         _dogDataContext = dogDataContext;
     }
     
+    TabBarViewController *tbvc = (TabBarViewController *)self.tabBarController;
+    tbvc.dogDataContext = self.dogDataContext;
+
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
     request.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 1"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"isUserFamily"
@@ -59,9 +67,10 @@
         EditProfileViewController *epvc = (EditProfileViewController *)segue.destinationViewController;
         epvc.userFamily = self.userFamily;
     }
-    else if ([segue.destinationViewController isKindOfClass:[SidebarViewController class]]) {
-        SidebarViewController *sbvc = (SidebarViewController *)segue.destinationViewController;
-        sbvc.dogDataContext = self.dogDataContext;
+    else if ([segue.identifier isEqualToString:@"logout"]) {
+        UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"DogWalk"];
+        [store removeAllItems];
+        [store synchronize];
     }
 }
 

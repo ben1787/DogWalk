@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "SWRevealViewController.h"
-#import "DogDataAvailablitySingleton.h"
+#import "DogDataAvailability.h"
 
 @interface ProfileViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (strong, nonatomic) Family *userFamily;
 
 -(void)updateUIData;

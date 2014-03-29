@@ -33,16 +33,7 @@
     // set managed object context
     _dogDataContext = dogDataContext;
     
-    //retreive the credentials from keychain. If there on to profile, else to login
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"DogWalk"];
-    NSString *username = [store stringForKey:@"username"];
-    NSString *password = [store stringForKey:@"password"];
-    if([LoginViewController validatePassword:password ForUsername:username]) {
-        [self performSegueWithIdentifier:@"show my profile" sender:nil];
-        
-    } else {
-        [self performSegueWithIdentifier:@"show login" sender:nil];
-    }
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

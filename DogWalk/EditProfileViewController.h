@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DogDataAvailablitySingleton.h"
+#import "DogDataAvailability.h"
 
 @interface EditProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *aboutUs;

@@ -8,8 +8,8 @@
 
 #import "PlaypalsTableViewController.h"
 #import "ProfileViewController.h"
-#import "SWRevealViewController.h"
-#import "DogDataAvailablitySingleton.h"
+#import "DogDataAvailability.h"
+#import "TabBarViewController.h"
 
 @interface PlaypalsTableViewController ()
 @property (strong, nonatomic) NSArray *playpalFamilies;
@@ -17,19 +17,10 @@
 
 @implementation PlaypalsTableViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // Change button color
-    //    _sidebarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
-    
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    TabBarViewController *tbvc = (TabBarViewController *)self.tabBarController;
+    self.dogDataContext = tbvc.dogDataContext;
 }
 
 -(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
