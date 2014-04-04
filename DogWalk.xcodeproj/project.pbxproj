@@ -33,6 +33,7 @@
 		33F4ECC618DE1DEA00DF4F48 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECC518DE1DEA00DF4F48 /* Family.m */; };
 		33F4ECC918DE1DEA00DF4F48 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECC818DE1DEA00DF4F48 /* Photo.m */; };
 		33F4ECCF18E1280200DF4F48 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECCE18E1280200DF4F48 /* TabBarViewController.m */; };
+		33F4ECD318ECE7C600DF4F48 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4ECD218ECE7C600DF4F48 /* PageContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		33F4ECCD18E1280200DF4F48 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarViewController.h; path = ../TabBarViewController.h; sourceTree = "<group>"; };
 		33F4ECCE18E1280200DF4F48 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarViewController.m; path = ../TabBarViewController.m; sourceTree = "<group>"; };
 		33F4ECD018E128CC00DF4F48 /* DogDataAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DogDataAvailability.h; sourceTree = "<group>"; };
+		33F4ECD118ECE7C500DF4F48 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		33F4ECD218ECE7C600DF4F48 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 		336C758118C7A3A100612212 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				33F4ECD118ECE7C500DF4F48 /* PageContentViewController.h */,
+				33F4ECD218ECE7C600DF4F48 /* PageContentViewController.m */,
 				336C758218C7AF3F00612212 /* EditProfileViewController.h */,
 				336C758318C7AF3F00612212 /* EditProfileViewController.m */,
 				336C755318C6A3A500612212 /* ProfileViewController.h */,
@@ -367,6 +372,7 @@
 			files = (
 				3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */,
 				33F4ECCF18E1280200DF4F48 /* TabBarViewController.m in Sources */,
+				33F4ECD318ECE7C600DF4F48 /* PageContentViewController.m in Sources */,
 				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				33F4ECC018DE1DE900DF4F48 /* Owner.m in Sources */,
 				3301670518DA710300C52F9B /* LoginViewController.m in Sources */,
