@@ -11,7 +11,6 @@
 
 @interface ProfileViewController () <UIPageViewControllerDataSource>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITextView *aboutUs;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSArray *profilePhotos;
@@ -28,12 +27,11 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
     
     //setup profile pictures for swiping
      _profilePhotos = @[@"Peter_Brian", @"Peter_Brian2", @"Peter_Brian3", @"Peter_Brian4"];
     [self updateUIData];
-    
+ 
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
@@ -43,10 +41,10 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-250);
+    self.pageViewController.view.frame = CGRectMake(0, 0, 320, 333);
     
     [self addChildViewController:_pageViewController];
-    [self.contentView addSubview:_pageViewController.view];
+    [self.scrollView addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
 
     //page indicator
@@ -54,6 +52,16 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
+    
+    [self.scrollView setScrollEnabled:YES];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 600)];
+    
+    CGRect frame = CGRectMake(25, self.scrollView.contentSize.height-75, 50, 50);
+    [UIBezierPath bezierPathWithOvalInRect:frame];
+    UIImageView *playpal = [[UIImageView alloc] initWithFrame:frame];
+    playpal.backgroundColor = [UIColor redColor];
+    [self.scrollView addSubview:playpal];
+    [super viewDidLoad];
     
 }
 
