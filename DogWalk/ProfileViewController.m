@@ -56,12 +56,33 @@
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 600)];
     
-    CGRect frame = CGRectMake(25, self.scrollView.contentSize.height-75, 50, 50);
-    [UIBezierPath bezierPathWithOvalInRect:frame];
-    UIImageView *playpal = [[UIImageView alloc] initWithFrame:frame];
-    playpal.backgroundColor = [UIColor redColor];
-    [self.scrollView addSubview:playpal];
     [super viewDidLoad];
+    
+}
+
+-(void)setUserFamily:(Family *)userFamily
+{
+    _userFamily = userFamily;
+    
+    if ([self.userFamily.playsWith count]>0) {
+        CGRect playpalLabelFrame = CGRectMake(20, self.scrollView.contentSize.height-100, 100, 25);
+        UILabel *playpalLabel = [[UILabel alloc] initWithFrame:playpalLabelFrame];
+        playpalLabel.text = @"Playpals";
+        playpalLabel.textColor = [UIColor blackColor];
+        [self.scrollView addSubview:playpalLabel];
+    }
+    for (int i = 1; i<=MIN([self.userFamily.playsWith count], 5); i++) {
+        int width = self.scrollView.frame.size.width/MAX([self.userFamily.playsWith count], 5)/5;
+        CGRect frame = CGRectMake(width*(5*i-4), self.scrollView.contentSize.height-75, 50, 50);
+        UIImageView *playpal = [[UIImageView alloc] initWithFrame:frame];
+        playpal.image = [UIImage imageNamed:@"Peter_Brian"];
+        CALayer *imageLayer = playpal.layer;
+        [imageLayer setCornerRadius:25];
+        [imageLayer setBorderWidth:2];
+        [imageLayer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        [imageLayer setMasksToBounds:YES];
+        [self.scrollView addSubview:playpal];
+    }
     
 }
 

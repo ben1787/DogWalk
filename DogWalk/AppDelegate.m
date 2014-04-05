@@ -83,7 +83,15 @@
                                                               ascending:YES]];
     NSArray *playpals = [self.dogDataContext executeFetchRequest:request
                                                               error:nil];
-    if(![playpals count]) {
+    
+    
+    NSFetchRequest *userFamilyRequest = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
+    userFamilyRequest.predicate = [NSPredicate predicateWithFormat:@"isUserFamily == 1"];
+    [userFamilyRequest setFetchLimit:1];
+    NSArray *userFamilyArray = [self.dogDataContext executeFetchRequest:userFamilyRequest
+                                                           error:nil];
+    if([userFamilyArray count] && ![playpals count]) {
+        Family *userFamily = [userFamilyArray objectAtIndex:0];
         //Add additional families to the database
         //scooby doo
         Family *mysteryTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
@@ -96,7 +104,9 @@
         scooby.name = @"Scooby Doo";
         scooby.family = mysteryTeam;
         mysteryTeam.aboutUs = @"We solve mysteries!";
-
+        NSMutableSet *mtPlaypals = [mysteryTeam mutableSetValueForKey:@"playsWith"];
+        [mtPlaypals addObject:userFamily];
+        
         //snoopy
         Family *peanuts = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
                                                             inManagedObjectContext:self.dogDataContext];
@@ -108,6 +118,8 @@
         snoopy.name = @"Snoopy";
         snoopy.family = peanuts;
         peanuts.aboutUs = @"We play together.";
+        NSMutableSet *pPlaypals = [peanuts mutableSetValueForKey:@"playsWith"];
+        [pPlaypals addObject:userFamily];
         
         //clifford
         Family *elizabeth = [NSEntityDescription insertNewObjectForEntityForName:@"Family"
@@ -120,6 +132,8 @@
         clifford.name = @"Clifford";
         clifford.family = elizabeth;
         elizabeth.aboutUs = @"Clifford is the biggest reddest dog ever!";
+        NSMutableSet *ePlaypals = [elizabeth mutableSetValueForKey:@"playsWith"];
+        [ePlaypals addObject:userFamily];
     }
 }
 
