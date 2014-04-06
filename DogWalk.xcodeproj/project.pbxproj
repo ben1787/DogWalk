@@ -12,6 +12,7 @@
 		3301670518DA710300C52F9B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670418DA710300C52F9B /* LoginViewController.m */; };
 		3301670D18DA7E3900C52F9B /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */; };
 		33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33047CB818CA990200797CB4 /* Model.xcdatamodeld */; };
+		3307141D18F0D4990018E41C /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307141C18F0D4990018E41C /* HeaderTableViewCell.m */; };
 		336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753B18C6A3A500612212 /* Foundation.framework */; };
 		336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753D18C6A3A500612212 /* CoreGraphics.framework */; };
 		336C754018C6A3A500612212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753F18C6A3A500612212 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		3301670B18DA7E3900C52F9B /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		33047CB918CA990200797CB4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3307141B18F0D4990018E41C /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableViewCell.h; sourceTree = "<group>"; };
+		3307141C18F0D4990018E41C /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableViewCell.m; sourceTree = "<group>"; };
 		336C753818C6A3A500612212 /* DogWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336C753B18C6A3A500612212 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		336C753D18C6A3A500612212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,8 @@
 			children = (
 				330166BD18D2839B00C52F9B /* PlaypalsTableViewController.h */,
 				330166BE18D2839B00C52F9B /* PlaypalsTableViewController.m */,
+				3307141B18F0D4990018E41C /* HeaderTableViewCell.h */,
+				3307141C18F0D4990018E41C /* HeaderTableViewCell.m */,
 			);
 			name = Playpals;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				33F4ECC918DE1DEA00DF4F48 /* Photo.m in Sources */,
 				33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */,
 				336C754C18C6A3A500612212 /* AppDelegate.m in Sources */,
+				3307141D18F0D4990018E41C /* HeaderTableViewCell.m in Sources */,
 				336C754818C6A3A500612212 /* main.m in Sources */,
 				33F4ECC318DE1DEA00DF4F48 /* Dog.m in Sources */,
 				33F4ECC618DE1DEA00DF4F48 /* Family.m in Sources */,

@@ -10,9 +10,11 @@
 #import "ProfileViewController.h"
 #import "DogDataAvailability.h"
 #import "TabBarViewController.h"
+#import "HeaderTableViewCell.h"
 
 @interface PlaypalsTableViewController ()
 @property (strong, nonatomic) NSArray *playpalFamilies;
+@property (strong, nonatomic) HeaderTableViewCell *headerCell;
 @end
 
 @implementation PlaypalsTableViewController
@@ -21,6 +23,9 @@
 {
     TabBarViewController *tbvc = (TabBarViewController *)self.tabBarController;
     self.dogDataContext = tbvc.dogDataContext;
+    
+    //set nav bar color
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor blueColor]];
 }
 
 -(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
@@ -65,6 +70,33 @@
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicture.imageURL]]];
     }
     return cell;
+}
+
+#pragma mark Header Setup
+#define HEADER_CELL_HEIGHT 72
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return HEADER_CELL_HEIGHT;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    HeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    self.headerCell = headerCell;
+    return headerCell;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect rect = self.headerCell.frame;
+    rect.origin.y = MIN(0, scrollView.contentOffset.y);
+    self.headerCell.frame = rect;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self tableView:self.tableView viewForHeaderInSection:1];
 }
 
 /*

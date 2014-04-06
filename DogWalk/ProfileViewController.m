@@ -41,7 +41,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 0, 320, 333);
+    self.pageViewController.view.frame = CGRectMake(0, 1, 320, 320);
     
     [self addChildViewController:_pageViewController];
     [self.scrollView addSubview:_pageViewController.view];
@@ -55,6 +55,9 @@
     
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 600)];
+    
+    //set nav bar color
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor blueColor]];
     
     [super viewDidLoad];
     
