@@ -7,43 +7,59 @@
 //
 
 #import "CreateWalkViewController.h"
+#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface CreateWalkViewController ()
+@interface CreateWalkViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *walkTypeSelector;
+@property (weak, nonatomic) IBOutlet UISlider *walkSizeSlider;
+@property (weak, nonatomic) IBOutlet UITextField *timeField;
+@property (weak, nonatomic) IBOutlet UISlider *walkLengthSlider;
+@property (strong, nonatomic) UIDatePicker *datePicker;
 
 @end
 
 @implementation CreateWalkViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //setting fontsize in selector
+    UIFont *font = [UIFont boldSystemFontOfSize:10];
+    NSDictionary *titleAttributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    [self.walkTypeSelector setTitleTextAttributes:titleAttributes forState:UIControlStateNormal];
+    
+    //set nav bar color
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor blueColor]];
+    
+    //set date picker to be the input fields first responder
+    _datePicker = [[UIDatePicker alloc] init];
+    self.timeField.inputView = self.datePicker;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissTimePicker)];
+    
+    [self.view addGestureRecognizer:tap];
+    self.timeField.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd, YYYY HH:mm"];
+    self.timeField.text = [dateFormatter stringFromDate:self.datePicker.date];
+    return YES;	
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)dismissTimePicker
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.timeField resignFirstResponder];
 }
-*/
+
+- (IBAction)roundGroupSize:(UISlider *)sender {
+    [sender setValue:round(sender.value) animated:YES];
+}
 
 @end

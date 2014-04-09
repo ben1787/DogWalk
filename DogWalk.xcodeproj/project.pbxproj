@@ -13,6 +13,10 @@
 		3301670D18DA7E3900C52F9B /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */; };
 		33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33047CB818CA990200797CB4 /* Model.xcdatamodeld */; };
 		3307141D18F0D4990018E41C /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307141C18F0D4990018E41C /* HeaderTableViewCell.m */; };
+		3307142418F37FA40018E41C /* WalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142318F37FA40018E41C /* WalkTableViewController.m */; };
+		3307142718F38D2A0018E41C /* CreateWalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142618F38D2A0018E41C /* CreateWalkViewController.m */; };
+		3307142918F39CAD0018E41C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3307142818F39CAD0018E41C /* MapKit.framework */; };
+		3307142C18F39FE20018E41C /* TimePickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142B18F39FE20018E41C /* TimePickerTextField.m */; };
 		336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753B18C6A3A500612212 /* Foundation.framework */; };
 		336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753D18C6A3A500612212 /* CoreGraphics.framework */; };
 		336C754018C6A3A500612212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753F18C6A3A500612212 /* UIKit.framework */; };
@@ -59,6 +63,13 @@
 		33047CB918CA990200797CB4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		3307141B18F0D4990018E41C /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableViewCell.h; sourceTree = "<group>"; };
 		3307141C18F0D4990018E41C /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableViewCell.m; sourceTree = "<group>"; };
+		3307142218F37FA40018E41C /* WalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WalkTableViewController.h; path = ../WalkTableViewController.h; sourceTree = "<group>"; };
+		3307142318F37FA40018E41C /* WalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalkTableViewController.m; path = ../WalkTableViewController.m; sourceTree = "<group>"; };
+		3307142518F38D2A0018E41C /* CreateWalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateWalkViewController.h; sourceTree = "<group>"; };
+		3307142618F38D2A0018E41C /* CreateWalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateWalkViewController.m; sourceTree = "<group>"; };
+		3307142818F39CAD0018E41C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3307142A18F39FE20018E41C /* TimePickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerTextField.h; sourceTree = "<group>"; };
+		3307142B18F39FE20018E41C /* TimePickerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTextField.m; sourceTree = "<group>"; };
 		336C753818C6A3A500612212 /* DogWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336C753B18C6A3A500612212 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		336C753D18C6A3A500612212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3307142918F39CAD0018E41C /* MapKit.framework in Frameworks */,
 				336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */,
 				336C754018C6A3A500612212 /* UIKit.framework in Frameworks */,
 				336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */,
@@ -168,6 +180,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		3307142118F37F500018E41C /* Walks */ = {
+			isa = PBXGroup;
+			children = (
+				3307142218F37FA40018E41C /* WalkTableViewController.h */,
+				3307142318F37FA40018E41C /* WalkTableViewController.m */,
+				3307142518F38D2A0018E41C /* CreateWalkViewController.h */,
+				3307142618F38D2A0018E41C /* CreateWalkViewController.m */,
+				3307142A18F39FE20018E41C /* TimePickerTextField.h */,
+				3307142B18F39FE20018E41C /* TimePickerTextField.m */,
+			);
+			name = Walks;
+			sourceTree = "<group>";
+		};
 		336C752F18C6A3A400612212 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +215,7 @@
 		336C753A18C6A3A500612212 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3307142818F39CAD0018E41C /* MapKit.framework */,
 				336C753B18C6A3A500612212 /* Foundation.framework */,
 				336C753D18C6A3A500612212 /* CoreGraphics.framework */,
 				336C753F18C6A3A500612212 /* UIKit.framework */,
@@ -201,10 +227,11 @@
 		336C754118C6A3A500612212 /* DogWalk */ = {
 			isa = PBXGroup;
 			children = (
-				3301670618DA712000C52F9B /* Login */,
 				336C758018C7A39300612212 /* Storyboard */,
+				3301670618DA712000C52F9B /* Login */,
 				336C758118C7A3A100612212 /* Profile */,
 				330166C018D283AA00C52F9B /* Playpals */,
+				3307142118F37F500018E41C /* Walks */,
 				33047CBB18CA990C00797CB4 /* Model */,
 				336C757718C6A9D900612212 /* Library */,
 				336C754218C6A3A500612212 /* Supporting Files */,
@@ -381,13 +408,16 @@
 				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				33F4ECC018DE1DE900DF4F48 /* Owner.m in Sources */,
 				3301670518DA710300C52F9B /* LoginViewController.m in Sources */,
+				3307142418F37FA40018E41C /* WalkTableViewController.m in Sources */,
 				336C755518C6A3A500612212 /* ProfileViewController.m in Sources */,
 				3301670D18DA7E3900C52F9B /* UICKeyChainStore.m in Sources */,
+				3307142718F38D2A0018E41C /* CreateWalkViewController.m in Sources */,
 				336C758418C7AF3F00612212 /* EditProfileViewController.m in Sources */,
 				33F4ECC918DE1DEA00DF4F48 /* Photo.m in Sources */,
 				33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */,
 				336C754C18C6A3A500612212 /* AppDelegate.m in Sources */,
 				3307141D18F0D4990018E41C /* HeaderTableViewCell.m in Sources */,
+				3307142C18F39FE20018E41C /* TimePickerTextField.m in Sources */,
 				336C754818C6A3A500612212 /* main.m in Sources */,
 				33F4ECC318DE1DEA00DF4F48 /* Dog.m in Sources */,
 				33F4ECC618DE1DEA00DF4F48 /* Family.m in Sources */,

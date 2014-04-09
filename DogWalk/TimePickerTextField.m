@@ -19,6 +19,11 @@
     return self;
 }
 
+-(CGRect)caretRectForPosition:(UITextPosition *)position
+{
+    return CGRectZero;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

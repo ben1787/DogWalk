@@ -77,9 +77,6 @@
     [self.scrollView setContentOffset:CGPointMake(0.0, PUSHUP_HEIGHT) animated:YES];
 }
 
-- (IBAction)saveEdits {
-}
-
 - (IBAction)cancel {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
