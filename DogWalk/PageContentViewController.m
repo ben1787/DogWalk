@@ -20,7 +20,8 @@
     // Do any additional setup after loading the view.
     
     self.imageView.image = [UIImage imageNamed:self.imageFile];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imageView setClipsToBounds:YES];
 }
 
 /*

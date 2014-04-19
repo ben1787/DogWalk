@@ -1,41 +1,34 @@
 //
-//  PlaypalsTableViewController.m
+//  InvitationsTableViewController.m
 //  DogWalk
 //
-//  Created by Development on 3/13/14.
+//  Created by Development on 4/14/14.
 //  Copyright (c) 2014 Development. All rights reserved.
 //
 
-#import "PlaypalsTableViewController.h"
-#import "ProfileViewController.h"
-#import "DogDataAvailability.h"
+#import "InvitationsTableViewController.h"
+#import "InvitationHeaderTableViewCell.h"
 #import "TabBarViewController.h"
+#import "DogDataAvailability.h"
+#import "InvitationTableViewCell.h"
 
-@interface PlaypalsTableViewController ()
-@property (weak, nonatomic) IBOutlet UISegmentedControl *playpalTypeSelector;
+@interface InvitationsTableViewController ()
+@property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
+@property (strong, nonatomic) NSArray *playpalFamilies;
 @end
 
-@implementation PlaypalsTableViewController
+@implementation InvitationsTableViewController
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
-    TabBarViewController *tbvc = (TabBarViewController *)self.tabBarController;
+    TabBarViewController *tbvc = (TabBarViewController *)self.presentingViewController;
     self.dogDataContext = tbvc.dogDataContext;
     
-    //set nav bar color
     [self.navigationController.navigationBar setBackgroundColor:[UIColor blueColor]];
-    
-    //set segmented control attributes
-    UIFont *font = [UIFont boldSystemFontOfSize:10];
-    UIColor *textColor = [UIColor blackColor];
-    NSArray *attributeObjects = @[font,textColor];
-    NSArray *attributeKeys = @[NSFontAttributeName,NSForegroundColorAttributeName];
-    NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjects:attributeObjects forKeys:attributeKeys];
-    [self.playpalTypeSelector setTitleTextAttributes:titleAttributes forState:UIControlStateNormal];
-        
 }
+
 
 -(void)setDogDataContext:(NSManagedObjectContext *)dogDataContext
 {
@@ -47,8 +40,17 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"owner.name"
                                                               ascending:YES]];
     NSArray *playpalFamilies = [dogDataContext executeFetchRequest:request
-                                                              error:nil];
+                                                             error:nil];
     self.playpalFamilies = playpalFamilies;
+}
+
+-(NSArray *)invitedPlaypals
+{
+    if (!_invitedPlaypals) {
+        _invitedPlaypals = [[NSArray alloc] init];
+    }
+    
+    return _invitedPlaypals;
 }
 
 #pragma mark - Table view data source
@@ -67,44 +69,48 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"playpal cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    UITableViewCell *configuredCell = [self configureCell:cell atIndexPath:indexPath];
+    static NSString *CellIdentifier = @"InvitationCell";
+    InvitationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    InvitationTableViewCell *configuredCell = [self configureCell:cell atIndexPath:indexPath];
     return configuredCell;
 }
 
--(UITableViewCell *)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+
+-(InvitationTableViewCell *)configureCell:(InvitationTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     // Configure the cell...
     Family *playpalFamily = [self.playpalFamilies objectAtIndex:indexPath.row];
-    Dog *dog = [playpalFamily.dogs anyObject];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ & %@", playpalFamily.owner.name, dog.name];
-    Photo *profilePicture = (Photo *)[[playpalFamily.pics filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"isProfilePic = 1"]] anyObject];
-    if(profilePicture) {
-        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicture.imageURL]]];
-    }
+    cell.family = playpalFamily;
+    
     return cell;
 }
 
-#pragma mark Header Setup
-#define HEADER_CELL_HEIGHT 44
+#pragma mark Handle Selecting and Deselecting
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return HEADER_CELL_HEIGHT;
+//at the moment this is not used as I disabled users ability to change the switch control so it defaults to selecting the cell. perhaps this should be changed in the future
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+    CGPoint center= sender.center;
+    CGPoint rootViewPoint = [sender.superview convertPoint:center toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:rootViewPoint];
+    
+    [sender setOn:!sender.isOn animated:NO];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-    self.headerCell = headerCell;
-    return headerCell;
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [self tableView:self.tableView viewForHeaderInSection:1];
+    InvitationTableViewCell *playpalCell = (InvitationTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    NSMutableArray *mutableInvitedPlaypals = [NSMutableArray arrayWithArray:self.invitedPlaypals];
+    if (playpalCell.invited.isOn) {
+        [mutableInvitedPlaypals removeObject:playpalCell.family];
+    } else {
+        [mutableInvitedPlaypals addObject:playpalCell.family];
+    }
+    
+    [playpalCell.invited setOn:!playpalCell.invited.isOn animated:YES];
+    
+    self.invitedPlaypals = [NSArray arrayWithArray:mutableInvitedPlaypals];
 }
 
 /*
@@ -123,8 +129,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
@@ -146,18 +151,19 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.destinationViewController isKindOfClass:[ProfileViewController class]]) {
-        ProfileViewController *pvc = (ProfileViewController *)segue.destinationViewController;
-        pvc.userFamily = [self.playpalFamilies objectAtIndex:[[self tableView] indexPathForSelectedRow].row];
-    }
 }
+*/
 
+#pragma mark Cancel Invitation Update
+- (IBAction)cancel {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

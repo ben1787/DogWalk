@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "HeaderTableViewCell.h"
 
 @interface PlaypalsTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (strong, nonatomic) NSManagedObjectContext *dogDataContext;
+@property (strong, nonatomic) NSArray *playpalFamilies;
+@property (strong, nonatomic) UITableViewCell *headerCell;
+-(UITableViewCell *)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
