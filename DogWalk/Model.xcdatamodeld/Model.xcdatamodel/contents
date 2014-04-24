@@ -7,7 +7,9 @@
     <entity name="Family" representedClassName="Family" syncable="YES">
         <attribute name="aboutUs" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isUserFamily" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="created" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Walk" inverseName="createdBy" inverseEntity="Walk" syncable="YES"/>
         <relationship name="dogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dog" inverseName="family" inverseEntity="Dog" syncable="YES"/>
+        <relationship name="goesOn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Walk" inverseName="takenBy" inverseEntity="Walk" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="family" inverseEntity="Owner" syncable="YES"/>
         <relationship name="pics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="takenOf" inverseEntity="Photo" syncable="YES"/>
         <relationship name="playsWith" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Family" inverseName="playsWith" inverseEntity="Family" syncable="YES"/>
@@ -23,10 +25,17 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="takenOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="pics" inverseEntity="Family" syncable="YES"/>
     </entity>
+    <entity name="Walk" syncable="YES">
+        <attribute name="startingPointLatitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="startingPointLongitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <relationship name="createdBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="created" inverseEntity="Family" syncable="YES"/>
+        <relationship name="takenBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Family" inverseName="goesOn" inverseEntity="Family" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Dog" positionX="205" positionY="108" width="128" height="73"/>
-        <element name="Family" positionX="63" positionY="-64" width="128" height="133"/>
+        <element name="Family" positionX="63" positionY="-64" width="128" height="163"/>
         <element name="Owner" positionX="-108" positionY="108" width="128" height="73"/>
         <element name="Photo" positionX="-108" positionY="-108" width="128" height="118"/>
+        <element name="Walk" positionX="45" positionY="257" width="128" height="103"/>
     </elements>
 </model>

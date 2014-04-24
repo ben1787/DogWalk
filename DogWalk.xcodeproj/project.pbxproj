@@ -10,7 +10,6 @@
 		330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330166BE18D2839B00C52F9B /* PlaypalsTableViewController.m */; };
 		3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670118D3B34400C52F9B /* MyProfileViewController.m */; };
 		3301670518DA710300C52F9B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670418DA710300C52F9B /* LoginViewController.m */; };
-		3301670D18DA7E3900C52F9B /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */; };
 		33047CBA18CA990200797CB4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33047CB818CA990200797CB4 /* Model.xcdatamodeld */; };
 		3307141D18F0D4990018E41C /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307141C18F0D4990018E41C /* HeaderTableViewCell.m */; };
 		3307142418F37FA40018E41C /* WalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142318F37FA40018E41C /* WalkTableViewController.m */; };
@@ -19,6 +18,7 @@
 		3307142C18F39FE20018E41C /* TimePickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142B18F39FE20018E41C /* TimePickerTextField.m */; };
 		3307142F18FC79560018E41C /* InvitationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307142E18FC79560018E41C /* InvitationsTableViewController.m */; };
 		3307143819020BCE0018E41C /* InvitationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307143719020BCE0018E41C /* InvitationTableViewCell.m */; };
+		3307145D1908A29D0018E41C /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3307145C1908A29D0018E41C /* UICKeyChainStore.m */; };
 		336C753C18C6A3A500612212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753B18C6A3A500612212 /* Foundation.framework */; };
 		336C753E18C6A3A500612212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753D18C6A3A500612212 /* CoreGraphics.framework */; };
 		336C754018C6A3A500612212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C753F18C6A3A500612212 /* UIKit.framework */; };
@@ -60,8 +60,6 @@
 		3301670118D3B34400C52F9B /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		3301670318DA710300C52F9B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3301670418DA710300C52F9B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		3301670B18DA7E3900C52F9B /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
-		3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		33047CB918CA990200797CB4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		3307141B18F0D4990018E41C /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableViewCell.h; sourceTree = "<group>"; };
 		3307141C18F0D4990018E41C /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableViewCell.m; sourceTree = "<group>"; };
@@ -76,6 +74,8 @@
 		3307142E18FC79560018E41C /* InvitationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationsTableViewController.m; sourceTree = "<group>"; };
 		3307143619020BCD0018E41C /* InvitationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationTableViewCell.h; sourceTree = "<group>"; };
 		3307143719020BCE0018E41C /* InvitationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationTableViewCell.m; sourceTree = "<group>"; };
+		3307145B1908A29D0018E41C /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICKeyChainStore.h; path = DogWalk/UICKeyChainStore.h; sourceTree = SOURCE_ROOT; };
+		3307145C1908A29D0018E41C /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStore.m; path = DogWalk/UICKeyChainStore.m; sourceTree = SOURCE_ROOT; };
 		336C753818C6A3A500612212 /* DogWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336C753B18C6A3A500612212 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		336C753D18C6A3A500612212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,8 +163,8 @@
 		3301670A18DA7E3900C52F9B /* KeychainStore */ = {
 			isa = PBXGroup;
 			children = (
-				3301670B18DA7E3900C52F9B /* UICKeyChainStore.h */,
-				3301670C18DA7E3900C52F9B /* UICKeyChainStore.m */,
+				3307145B1908A29D0018E41C /* UICKeyChainStore.h */,
+				3307145C1908A29D0018E41C /* UICKeyChainStore.m */,
 			);
 			name = KeychainStore;
 			path = "../../../../Downloads/UICKeyChainStore-master/Lib";
@@ -415,12 +415,12 @@
 				3301670218D3B34400C52F9B /* MyProfileViewController.m in Sources */,
 				33F4ECCF18E1280200DF4F48 /* TabBarViewController.m in Sources */,
 				33F4ECD318ECE7C600DF4F48 /* PageContentViewController.m in Sources */,
+				3307145D1908A29D0018E41C /* UICKeyChainStore.m in Sources */,
 				330166BF18D2839B00C52F9B /* PlaypalsTableViewController.m in Sources */,
 				33F4ECC018DE1DE900DF4F48 /* Owner.m in Sources */,
 				3301670518DA710300C52F9B /* LoginViewController.m in Sources */,
 				3307142418F37FA40018E41C /* WalkTableViewController.m in Sources */,
 				336C755518C6A3A500612212 /* ProfileViewController.m in Sources */,
-				3301670D18DA7E3900C52F9B /* UICKeyChainStore.m in Sources */,
 				3307142718F38D2A0018E41C /* CreateWalkViewController.m in Sources */,
 				3307143819020BCE0018E41C /* InvitationTableViewCell.m in Sources */,
 				336C758418C7AF3F00612212 /* EditProfileViewController.m in Sources */,

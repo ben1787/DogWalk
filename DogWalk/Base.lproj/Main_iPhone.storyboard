@@ -293,6 +293,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Create" id="Hu1-kV-LJo"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="scrollView" destination="QZj-iK-TcI" id="Zn3-G6-7DS"/>
                         <outlet property="timeField" destination="5pi-jV-Nqf" id="mFg-lN-VxB"/>
