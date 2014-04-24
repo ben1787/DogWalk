@@ -540,8 +540,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="saveEdits" destination="Lef-LB-dPG" eventType="touchUpInside" id="VgW-Lo-5RU"/>
-                                            <segue destination="Uwr-o1-R6y" kind="unwind" unwindAction="editedProfile:" id="y4s-kG-pBc"/>
+                                            <segue destination="Uwr-o1-R6y" kind="unwind" unwindAction="editedProfile:" id="b00-pD-5jf"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Zp1-4M-Od9">
